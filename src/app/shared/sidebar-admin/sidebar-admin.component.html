@@ -1,0 +1,59 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- para que funcione el routerlink debemos importar el router en el share module-->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="user-profile">
+                        <a class="has-arrow waves-effect waves-dark" 
+                            href="#" aria-expanded="false">
+                            <img [src]="usuario.imagen | imagen" alt="user"/>
+                            <span class="hide-menu">{{usuario.nombre}}</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a routerLinkActive = "active" routerLink= "/perfil">Mi Perfil </a></li>
+                            <li><a routerLinkActive = "active" routerLink= "/seguridad">Seguridad</a></li>
+                            <li><a href="javascript:void()">Correo</a></li>
+                            <li><a routerLinkActive = "active" routerLink= "/ajuste-cuenta">Temas</a></li>
+                            <li><a (click)= "usuarioService.logoutUsuario()" class= "pointer">Salir</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-devider"></li>
+
+                    <li class="nav-small-cap">Menu general</li>
+                    <li *ngFor = "let menu of sidebarService.menu"> 
+                        <a class="has-arrow waves-effect waves-dark" aria-expanded="false">
+                            <i [class]="menu.icono"></i>
+                            <span class="hide-menu">
+                                {{menu.titulo}}
+                                <span class="label label-rouded label-themecolor pull-right">
+                                    {{menu.submenu.length}}
+                                </span>
+                            </span>
+                        </a>
+
+                        <ul *ngFor = "let submenu of menu.submenu" aria-expanded="false" class="collapse">
+                            <li><a routerLinkActive = "active" [routerLink]= "[submenu.url]">{{submenu.titulo}}</a></li>
+                      
+                        </ul>
+                    </li>
+    
+    
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+
+
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+
+  
+        

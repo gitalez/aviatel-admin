@@ -1,0 +1,29 @@
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<footer  class="footer">
+    <div class= "row">
+
+ 
+  <div class="col-lg-6 text-left query1">© {{ anio }} AVIATEL - ADMIN</div>
+
+ 
+
+ 
+  <div class="col-lg-6 text-right query2">
+     
+    Estado de conexion: &nbsp;
+    <span *ngIf="websocketService.socketStatus" class="text-success">
+      <i class="mdi mdi-server-network"></i> Online</span
+    >
+    <span *ngIf="!websocketService.socketStatus" class="text-danger">
+      <i class="mdi mdi-server-off"></i> Offline</span
+    >
+  </div>
+  
+
+</div>
+</footer>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->

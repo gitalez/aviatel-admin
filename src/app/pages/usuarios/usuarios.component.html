@@ -1,0 +1,171 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Listado de contactos</h4>
+    <h6 class="card-subtitle">
+      <code>{{ totalRegistros }}</code> contactos registrados en la base de
+      datos
+    </h6>
+    <div class="dataTables_filter">
+      <label
+        >Buscar:
+        <!-- el #input hace de referencia local al input.value-->
+        <input
+          #input
+          (change)="buscarUsuario(input.value)"
+          type="search"
+          class=""
+          placeholder="Buscar contacto..."
+          aria-controls=""
+        />
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<!-- .row -->
+<div class="row">
+  <!-- .col -->
+  <div *ngFor="let usuario of usuarios" class="col-md-6 col-lg-6 col-xlg-4">
+    <div  class="card card-body">
+      <div class="row">
+
+        <div class="col-md-4 col-lg-3 text-center">
+          <img
+            (click)="mostrarModal(usuario._id)"
+            [src]="usuario.imagen | imagen"
+            class=" img-circle pointer img-responsive"
+          />
+        </div>
+
+        <div class="col-md-8 col-lg-9">
+          <h3 class="box-title m-b-0">{{usuario.nombre}}</h3>
+          <small>{{ usuario.email }}</small>
+          <div>
+        <br>
+           Rol: {{ usuario.role}}
+           <br>
+           Estado: {{ usuario.estado}}
+           <br>
+           Login: 
+           <label
+           *ngIf="usuario.google"
+           class="label label-danger text-center">
+        
+           <small> google</small>
+          </label>
+
+         <label 
+         *ngIf="!usuario.google"
+         class="text-center">
+        normal
+         </label>
+
+      </div>
+        </div>
+
+       
+
+
+      </div>
+
+      <div class = "row">
+          <div class="col-md-8 col-lg-12 text-right">
+              <button
+              type= "button"
+              data-toggle="tooltip"
+              title="editar usuario"
+              [routerLink]="['/actualizar-usuario', usuario._id]"
+              class="btn btn-primary btn-sm"
+            >
+              <i aria-hidden="true" class="fa fa-edit"></i>
+            </button>
+     
+            &nbsp;
+            <button
+            type= "button"
+            data-toggle="tooltip"
+            title="eliminar usuario"
+              (click)="borrarUsuario(usuario)"
+              class="btn btn-danger btn-sm"
+            >
+              <i aria-hidden="true" class="fa fa-trash-o"></i>
+            </button>
+           
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+
+ 
+</div>
+
+<button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+    Anterior
+</button>
+
+<button (click)="cambiarDesde(5)" class="btn btn-secondary">
+    Siguiente
+</button>
+
+<button (click)="todos()" class="btn btn-secondary">
+    Todos
+</button>
+
+
+<!-- /.row -->
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+
+<!--
+
+
+<div class="card-columns">
+  <div class="card" *ngFor="let usuario of usuarios">
+    <img
+      class="card-img-top"
+      (click)="mostrarModal(usuario._id)"
+      [src]="usuario.imagen | imagen"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-center">Nombre: {{ usuario.nombre }}</h5>
+      <p class="card-text">Correo: {{ usuario.email }}</p>
+      <p class="card-text">Rol: {{ usuario.role }}</p>
+      <p class="card-text">Estado: {{ usuario.estado }}</p>
+
+      <label *ngIf="usuario.google" class="label label-danger text-center">
+        <small>Login: google</small>
+      </label>
+
+      <label *ngIf="!usuario.google" class="label label-info">
+        <small>Login: normal</small>
+      </label>
+
+      <button
+        type= "button"
+        [routerLink]="['/actualizar-usuario', usuario._id]"
+        class="btn btn-primary btn-block">
+        <i class="fa fa-edit"></i>
+      </button>
+
+      &nbsp;
+
+      <button 
+        type= "button"
+        (click)="borrarUsuario(usuario)" 
+        class="btn btn-danger btn-block">
+        <i class="fa fa-trash-o"></i>
+      </button>
+
+    </div>
+  </div>
+</div>
+-->
+<!--
+   class="img-50 img-circle pointer"
+-->

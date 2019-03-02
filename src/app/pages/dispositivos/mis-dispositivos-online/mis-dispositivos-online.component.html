@@ -1,0 +1,110 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Listado de mis dispositivos adquiridos</h4>
+    <h6 class="card-subtitle">
+      <code>{{totalRegistros}} &nbsp;</code>son mis dispositivos registrados en la base de
+      datos
+    </h6>
+  </div>
+</div>
+
+
+<div class="row">
+
+  <div *ngFor="let dispositivo of misDispositivosOnline; let i = index" class="col-md-6 col-lg-6 col-xlg-4">
+    <div  class="card card-body">
+      <div class="row">
+
+        <div class="col-md-4 col-lg-3 text-center">
+          <img
+            [src]="dispositivo.imagen | imagen: 'dispositivo'"
+            class=" img-circle pointer img-responsive"
+          />
+        </div>
+
+        <div class="col-md-8 col-lg-9">
+          <h3 class="box-title m-b-0">{{dispositivo.nombre}}</h3>
+          <small>Soy: {{ dispositivo.tipo}}</small> &nbsp;
+          <small> Creado: {{ dispositivo.creadoEl | date: 'd/M/yy  h:mm'}}</small>
+        
+          <div>
+          <br>
+           Mac address: {{ dispositivo.mac}}
+           <br>
+           Estado: {{ dispositivo.estado}}
+           <br>
+           Instalado: {{ dispositivo.lugar}}
+           <br>
+           Hogar: {{dispositivo.hogar}}
+           <br>
+           Sector: {{dispositivo.sector}}
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <div class = "row">
+
+          <div class="col-lg-6 ">
+
+            <div [ngSwitch]="dispositivo.tipo">
+
+                <div *ngSwitchCase="'wifi industrial'">
+                
+                    <label class="switch">
+                     
+                        <input type="checkbox"
+                        (click)= "operar(i)"
+                        >
+                        <span class="slider round ancho "></span>
+                    </label>
+                </div>
+
+                <div *ngSwitchCase="'llave de luz'">
+
+                    <label class="switch ">
+                        <input type="checkbox"
+                        (click)= "operar(i)">
+                    
+                        <span class="slider round ancho "></span>
+              
+                      </label>
+
+                    <label class="switch ">
+                        <input type="checkbox"
+                        value= "L2"
+                        (click)= "operar(i)"
+                        >
+                        <span class="slider round ancho "></span>
+                
+                      </label>
+                </div>
+
+            </div>
+        
+             
+    
+   
+          </div>
+  
+
+          <div class="col-md-4 col-lg-6 text-right">
+          <button
+          type= "button"
+          data-toggle="tooltip"
+          title="editar dispositivo"
+        
+          [routerLink]="['/comandarUnDispositivo', dispositivo._id]"
+          class="btn btn-primary btn-sm">
+              <i aria-hidden="true" class="fa fa-edit"></i>
+          </button>
+    
+          </div>
+
+       
+      </div>
+
+ 
+    </div>
+  </div>
+</div>

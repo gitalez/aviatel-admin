@@ -1,0 +1,48 @@
+
+<div class="row animated fadeIn">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">cambio de contraseña</h4>
+        <h6 class="card-subtitle"></h6>
+        <form ngNativeValidate  [formGroup]="formPass" (ngSubmit)="actualizarPass()" class="form p-t-20">
+          <div class="form-group">
+            <label for="exampleInputuname"> Contraseña</label>
+            <div class="input-group">
+
+              <div class="input-group-addon"><i class="ti-pass"></i></div>
+                <input formControlName="password" name="password" class="form-control" type="text" required placeholder="Contraseña">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">repita la contraseña</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-pass"></i></div>
+              <input formControlName="password2" name="password2" class="form-control" type="text" required placeholder="Confirma la contraseña"> 
+          </div>
+        </div>
+          <button
+            type="submit"
+            class="btn btn-success waves-effect waves-light m-r-10">
+            <i class="fa fa-save"></i> Guardar
+          </button>
+
+          <button
+          type="button"
+          (click)= "volver()"
+          class="btn btn-red waves-effect waves-light m-r-10">
+          <i class=" text-right fa fa-save"></i> Volver
+        </button>
+        <div class="form-group" *ngIf="formPass.errors?.sonIguales  && !formPass.pristine" >
+            <p class="text-danger">
+                las contraseñas deben ser iguales
+            </p>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+

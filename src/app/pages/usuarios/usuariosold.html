@@ -1,0 +1,112 @@
+<!--
+
+<div *ngIf="!cargando" class=" row animated fadeIn">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Listado de contactos</h4>
+          <h6 class="card-subtitle">
+            <code>{{ totalRegistros }}</code> contactos registrados en la base de
+            datos
+          </h6>
+          <div class="dataTables_filter">
+            <label
+              >Buscar:
+           
+              <input
+                #input
+                (change)="buscarUsuario(input.value)"
+                type="search"
+                class=""
+                placeholder="Buscar contacto..."
+                aria-controls=""
+              />
+            </label>
+          </div>
+  
+
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="table-query1">Imagen</th>
+                <th>Correo</th>
+                <th class="table-query3">Nombre</th>
+                <th class="table-query0">Rol</th>
+                <th class="table-query0">Estado</th>
+                <th class="table-query2">Login</th>
+                <th class="table-query4"></th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let usuario of usuarios">
+                <td class="w70 table-query1">
+                  <img
+                    (click)="mostrarModal(usuario._id)"
+                    [src]="usuario.imagen | imagen"
+                    class="img-50 img-circle pointer"
+                  />
+                </td>
+  
+                <td>{{ usuario.email }}</td>
+           
+  class="table-query0" 1130 px
+  class="table-query1" 900 px
+  class="table-query2" 700 px
+  class="table-query3" 550 px
+
+                <td class="table-query3">{{ usuario.nombre }}</td>
+  
+                <td class="table-query0">{{ usuario.role }}</td>
+  
+                <td class="table-query0">{{ usuario.estado }}</td>
+  
+                <td class="table-query2">
+                  <label
+                    *ngIf="usuario.google"
+                    class="label label-danger text-center"
+                  >
+                    <small>Google</small>
+                  </label>
+  
+                  <label *ngIf="!usuario.google" class="label label-info">
+                    <small>Normal</small>
+                  </label>
+                </td>
+  
+                <td class="table-query4">
+                el seg argumento es el id del usuario
+                  <button
+                    [routerLink]="['/actualizar-usuario', usuario._id]"
+                    class="btn btn-primary btn-sm"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+  
+                  &nbsp;
+                  <button
+                    (click)="borrarUsuario(usuario)"
+                    class="btn btn-danger btn-sm"
+                  >
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+            Anterior
+          </button>
+  
+          <button (click)="cambiarDesde(5)" class="btn btn-secondary">
+            Siguiente
+          </button>
+  
+          <button (click)="todos()" class="btn btn-secondary">Todos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->

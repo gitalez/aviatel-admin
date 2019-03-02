@@ -1,0 +1,147 @@
+
+<div class="row animated fadeIn">
+    <div class="col-lg-12 col-xlg-12 col-md-12">
+      <div class="card">
+        <div class="tab-content">
+         
+            <div class="card-body tab-panel">
+              <form
+              #fDisp= "ngForm"
+                ngNativeValidate
+                (ngSubmit)="actualizarDispositivo(fDisp)"
+                class="form-horizontal form-material">
+                <br/>
+  
+                  <div class="form-group">
+                  <label class="col-md-12 text-dark">Nombre del dispositivo</label>
+                  <div class="col-md-12">
+                    <input
+                      [(ngModel)]="dispositivo.nombre"
+                      name="nombre"
+                      type="text"
+                      placeholder="ingrese nombre del dispositivo"
+                      class="form-control form-control-line"
+                      required/>
+                  </div>
+                  </div>
+                  <br/>
+  
+                  <div class="form-group">
+                      <label class="col-md-12 text-dark">Latitud dispositivo</label>
+                      <div class="col-md-12">
+                        <input
+                          [(ngModel)]="dispositivo.lat"
+                          name="lat"
+                          type="number"
+                          placeholder="ingrese la latitud del dispositivo"
+                          class="form-control form-control-line"
+                          required/>
+                      </div>
+                  </div>
+                  <br/>  
+  
+                  <div class="form-group">
+                      <label class="col-md-12 text-dark">Longitud dispositivo</label>
+                      <div class="col-md-12">
+                        <input
+                          [(ngModel)]="dispositivo.lng"
+                          name="lng"
+                          type="number"
+                          placeholder="ingrese nombre del dispositivo"
+                          class="form-control form-control-line"
+                          required/>
+                      </div>
+                  </div>
+                  <br/>
+  
+                  <div class="form-group">
+                          <label class="col-md-12 text-dark">Lugar de instalacion</label>
+                          <div class="col-md-12">
+                            <input
+                              [(ngModel)]="dispositivo.lugar"
+                              name="lugar"
+                              type="text"
+                              placeholder="ingrese el lugar de la instalacion"
+                              class="form-control form-control-line"
+                              required/>
+                          </div>
+                  </div>
+                  <br/>
+
+                  <div class="form-group">
+                    <label class="col-md-12 text-dark">Hogar de instalacion</label>
+                    <div class="col-md-12">
+                      <input
+                        [(ngModel)]="dispositivo.hogar"
+                        name="hogar"
+                        type="text"
+                        placeholder="ingrese el hogar de la instalacion"
+                        class="form-control form-control-line"
+                        required/>
+                    </div>
+                  </div>
+                  <br/>
+
+                  <div class="form-group">
+                    <label class="col-md-12 text-dark">Sector de  instalacion</label>
+                    <div class="col-md-12">
+                      <input
+                        [(ngModel)]="dispositivo.sector"
+                        name="sector"
+                        type="text"
+                        placeholder="ingrese el sector de la instalacion"
+                        class="form-control form-control-line"
+                        required/>
+                    </div>
+                  </div>
+                  <br/>
+
+                  <div class="form-group">
+                          <label class="col-md-12 text-dark">Descripcion opcional</label>
+                          <div class="col-md-12">
+                            <textarea
+                              [(ngModel)]="dispositivo.descripcion"
+                              name="descripcion"
+                              type="text"
+                              row= "4"
+                              placeholder="ingrese una descripcion"
+                              class="form-control form-control-line"></textarea>
+                          </div>
+                  </div>
+                  <br/>
+  
+            
+                  <div class="form-group">
+                          <label class="col-sm-12 text-dark">Estado del dispositivo</label>
+                          <div class="col-sm-12">
+                            <select 
+                              class="form-control form-control-line"
+                              [(ngModel)] = dispositivo.estado
+                              required
+                              name="estado">
+                              <option value="">Seleccione un estado</option>
+                              <option>activo</option>
+                              <option>inactivo</option>
+                            </select>
+                          </div>
+                  </div>
+                  <br>
+  
+               
+  
+                  <div class="form-group">
+                          <div class="col-sm-12">
+          
+                            <button type= "submit" class="btn btn-success">Actualizar dispositivo</button>
+                            &nbsp;
+                            <a routerLink= "/dispositivos" class="btn btn-red waves-effect waves-light">
+                              Cancelar
+                            </a>
+                          </div>
+                  </div> 
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

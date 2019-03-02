@@ -1,0 +1,157 @@
+<div class="card animated fadeIn">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="card-title">Listado de contactos</h4>
+        <h6 class="card-subtitle">
+          <code>total</code> contactos registrados en la base de datos
+        </h6>
+
+        <div class="dataTables_filter">
+          <label
+            >Buscar:
+   <!--
+                (change)="buscarUsuario(input.value)"
+              -->
+            <input
+              #input
+           
+           
+              type="search"
+              class=""
+              placeholder="Buscar contacto..."
+              aria-controls=""
+            />
+          </label>
+        </div>
+      </div>
+
+      <br />
+    </div>
+
+    <div class="row">
+      <div class="">
+        <div class="table-responsive">
+          <table class=" col-4 table table-hover">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <div id="list-mensajes">
+                <tr
+                  *ngFor="let uscon of usuariosActivos"
+                  class=" chatonline  pointer"
+                >
+                  <td>
+                    <img
+                      [src]="uscon.imagen | imagen"
+                      alt="user-img"
+                      class="img-circle"
+                    />
+
+                    <span class="name">{{ uscon.name }}</span>
+                    <p><small class="text-success">online</small></p>
+                    <p><small>ultima frase</small></p>
+                  </td>
+                  <td></td>
+                </tr>
+              </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div id="chat-mensajes">
+          <ul class="chat-list p-20">
+            <li *ngFor="let mensaje of mensajes">
+              <div *ngIf="mensaje.quien === 'soyYo'">
+                <div class="chat-content">
+                  <div class="box bg-light-info ">{{ mensaje.mensaje }}</div>
+                </div>
+                <div class="chat-time">{{ now | date: "shortTime" }}</div>
+              </div>
+
+              <div *ngIf="mensaje.quien === 'noSoyYo'">
+                <div class="reverse chat-content ">
+                  <h5>{{ mensaje.de }}</h5>
+                  <div class="box bg-light-inverse ">{{ mensaje.mensaje }}</div>
+                </div>
+                <div class="chat-time">{{ now | date: "shortTime" }}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form ngNativeValidate class="form" (ngSubmit)="enviarMsg()">
+  <div class="col-12">
+    <input
+      type="text"
+      placeholder="escriba su mensaje aqui"
+      class="form-control chat-input b-0"
+      [(ngModel)]="texto"
+      name="texto"
+      required
+      autocomplete="off"
+    />
+  </div>
+</form>
+
+<!--
+  
+    <div class="row animated fadeIn">
+        <div class="col-md-12 col-sm-8">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Listado de contactos</h4>
+                    <h6 class="card-subtitle"><code>totalRegistros</code> contactos registrados en la base de datos</h6>
+    
+                    <div class="dataTables_filter">
+                        <label>Buscar:
+              
+                <input #input (change)="buscarUsuario(input.value)" type="search" class="" placeholder="Buscar contacto..."
+                  aria-controls="">
+              </label>
+                    </div>
+    
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                <div class=" chat-left-aside" id = "list-mensajes">
+                                    <tr *ngFor = "let uscon of usuariosActivos" class="list-group chatonline list-style-none pointer">
+                                        <td>
+                                            <img
+                                                [src]="uscon.imagen |imagen"
+                                                alt="user-img"
+                                                class="img-circle"/>
+
+                                                <p>{{uscon.name}}</p>
+                                                <p><small class="text-success">online</small></p>
+                                                <p><small >ultima frase</small></p>
+                                        </td>
+                                    </tr>
+                                </div>    
+                            </tbody>
+                        </table>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+   -->

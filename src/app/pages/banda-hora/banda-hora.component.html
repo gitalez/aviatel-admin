@@ -1,0 +1,91 @@
+<!--
+  (eventClicked)="handleEvent('Clicked', $event.event)"
+-->
+  <br/>
+
+  <div>
+    <mwl-calendar-week-view
+      [class.active]="view === CalendarView.Week"
+      [viewDate]="viewDate"
+      [events]="bandas"
+      [refresh]="refresh"
+    
+      (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-week-view>
+
+  </div>
+
+  <br/><br /><br/>
+  
+  <h3>
+    Edicion de bandas
+    <button class="btn btn-primary pull-right" (click)="addEvent()">
+      Agregar nueva banda
+    </button>
+    <div class="clearfix"></div>
+  </h3>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Comienza</th>
+        <th>termina</th>
+        <th>Quitar</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let banda of bandas; let index = index">
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="banda.title"
+            (keyup)="refresh.next()"
+          />
+        </td>
+
+        <td>
+          <input
+            class="form-control"
+            type="text"
+            mwlFlatpickr
+            [(ngModel)]="banda.start"
+            (ngModelChange)="refresh.next()"
+            [altInput]="true"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="Not set"
+          />
+        </td>
+
+        <td>
+          <input
+            class="form-control"
+            type="text"
+            mwlFlatpickr
+            [(ngModel)]="banda.end"
+            (ngModelChange)="refresh.next()"
+            [altInput]="true"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="Not set"
+          />
+        </td>
+
+        <td>
+          <button
+            class="btn btn-danger"
+            (click)="bandas.splice(index, 1); refresh.next()"
+          >
+            Borrar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

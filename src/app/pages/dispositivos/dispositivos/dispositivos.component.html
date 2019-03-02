@@ -1,0 +1,157 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Listado de dispositivos</h4>
+      <h6 class="card-subtitle">
+        <code>{{ totalRegistros }}</code> dispositivos registrados en la base de
+        datos
+      </h6>
+      <div class="dataTables_filter">
+        <label
+          >Buscar:
+          <!-- el #input hace de referencia local al input.value-->
+          <input
+            #input
+            (change)="buscarDispositivo(input.value)"
+            type="search"
+            class=""
+            placeholder="Buscar dispositivo..."
+            aria-controls=""
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================================== -->
+  <!-- Start Page Content -->
+  <!-- ============================================================== -->
+  <!-- .row -->
+  <div class="row">
+    <!-- .col -->
+    <div *ngFor="let dispositivo of dispositivos" class="col-md-6 col-lg-6 col-xlg-4">
+      <div  class="card card-body">
+        <div class="row">
+  
+          <div class="col-md-4 col-lg-3 text-center">
+            <img
+              (click)="mostrarModal(dispositivo._id)"
+              [src]="dispositivo.imagen | imagen: 'dispositivo'"
+              class=" img-circle pointer img-responsive"
+            />
+          </div>
+  
+          <div class="col-md-8 col-lg-9">
+            <h3 class="box-title m-b-0">{{dispositivo.nombre}}</h3>
+            <small>Tipo: {{ dispositivo.tipo}}</small> &nbsp;
+            <small> Creado: {{ dispositivo.creadoEl | date: 'd/M/yy  h:mm'}}</small>
+            <div>
+            <br>
+             Mac address: {{ dispositivo.mac}}
+             <br>
+             Estado: {{ dispositivo.estado}}
+             <br>
+             Latitud: {{ dispositivo.lat}}
+             <br>
+             Longitud: {{ dispositivo.lng}}
+             <br>
+             <br>
+             Hogar: {{ dispositivo.hogar}}
+             <br>
+             Lugar: {{ dispositivo.lugar}}
+             <br>
+             Sector: {{ dispositivo.sector}}
+             <br>
+             verdadero: {{ dispositivo.esVerdadero}}
+             <br>
+             nombre usuario: {{ dispositivo.usuario.nombre}}
+             <br>
+             correo usuario: {{ dispositivo.usuario.email}}
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+
+            <div class="col-lg-6 ">
+
+                <div [ngSwitch]="dispositivo.tipo">
+  
+                    <div *ngSwitchCase="'wifi industrial'">
+                    
+                        <label class="switch">
+                         
+                            <input type="checkbox"
+                     
+                            >
+                            <span class="slider round ancho "></span>
+                        </label>
+                    </div>
+  
+                    <div *ngSwitchCase="'llave de luz'">
+  
+                        <label class="switch ">
+                            <input type="checkbox"
+                            >
+                        
+                            <span class="slider round ancho "></span>
+                  
+                          </label>
+  
+                        <label class="switch ">
+                            <input type="checkbox"
+                       
+                          
+                            >
+                            <span class="slider round ancho "></span>
+                    
+                          </label>
+                    </div>
+  
+                </div>
+            
+                 
+        
+       
+            </div>
+
+            <div class="col-md-4 col-lg-6 text-right">
+                <button
+                type= "button"
+                data-toggle="tooltip"
+                title="editar dispositivo"
+                [routerLink]="['/dispositivo', dispositivo._id]"
+                class="btn btn-primary btn-sm">
+                <i aria-hidden="true" class="fa fa-edit"></i>
+                </button>
+
+              &nbsp;
+              
+              <button
+              type= "button"
+              data-toggle="tooltip"
+              title="comandar dispositivo"
+                [routerLink]="['/soy', dispositivo._id]"
+                class="btn btn-success btn-sm">
+                <i aria-hidden="true" class="fa fa-check-square"></i>
+              </button>
+             
+              &nbsp;
+
+              <button
+              type= "button"
+              data-toggle="tooltip"
+              title="eliminar dispositivo"
+                (click)="borrarDispositivo(dispositivo)"
+                class="btn btn-danger btn-sm">
+                <i aria-hidden="true" class="fa fa-trash-o"></i>
+              </button>
+             
+            </div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+   
+  </div>

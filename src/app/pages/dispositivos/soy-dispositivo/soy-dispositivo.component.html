@@ -1,0 +1,92 @@
+<div class="row">
+ 
+    <div  class="card card-body">
+      <div class="row">
+
+        <div class="col-md-4 col-lg-3 text-center">
+          <img
+            [src]="dispositivo.imagen | imagen: 'dispositivo'"
+            class=" img-circle pointer img-responsive"
+          />
+        </div>
+
+        <div class="col-md-8 col-lg-9">
+          <h3 class="box-title m-b-0">{{dispositivo.nombre}}</h3>
+          <p><small>Hogar: hogar</small></p>
+          <small>Soy: {{ dispositivo.tipo}}</small> &nbsp;
+          <small> Creado: {{ dispositivo.creadoEl | date: 'd/M/yy  h:mm'}}</small>
+        
+          <div>
+          <br>
+           Mac address: {{ dispositivo.mac}}
+           <br>
+           Estado: {{ dispositivo.estado}}
+           <br>
+           Lugar: {{ dispositivo.lugar}}
+           <br>
+           <br>
+           Hogar: {{ dispositivo.hogar}}
+           <br>
+           <br>
+           Sector: {{ dispositivo.sector}}
+           <br>
+
+           <br>
+           pertenece a: {{ dispositivo.usuario.nombre}}
+           <br>
+        
+           con email: {{ dispositivo.usuario.email}}
+           <br>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <div class = "row">
+
+          <div class="col-lg-6 ">
+
+            <div [ngSwitch]="dispositivo.tipo">
+
+                <div *ngSwitchCase="'wifi industrial'">
+                
+                    <label class="switch">
+                     
+                        <input type="checkbox"
+                        (click)= "operar()"
+                        >
+                        <span class="slider round ancho "></span>
+                    </label>
+                </div>
+
+                <div *ngSwitchCase="'llave de luz'">
+
+                    <label class="switch ">
+                        <input type="checkbox"
+                        (click)= "operar()">                 
+                        <span class="slider round ancho "></span>              
+                      </label>
+
+                    <label class="switch ">
+                        <input type="checkbox"
+                        (click)= "operar()">
+                        <span class="slider round ancho "></span>
+                      </label>
+                </div>
+
+            </div>
+        
+             
+    
+   
+          </div>
+  
+
+        
+       
+      </div>
+
+ 
+    </div>
+ 
+</div>

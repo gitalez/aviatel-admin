@@ -1,0 +1,133 @@
+<div class="row">
+
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+      <div class="card">
+
+          <img
+          src= "../assets/images/background/socialbg.jpg"
+          alt="Card image"/>
+
+        <div class="card-img-overlay card-inverse social-profile d-flex " 
+        style= "background-color: rgb(247, 77, 218)">
+          <div>
+
+            <img 
+          
+            [src]= "dispositivo.imagen | imagen: 'dispositivo'"
+              class="img-circle"
+              width="100"/>
+            <br>
+            <br>
+
+            <h4 class="card-title">Soy: {{dispositivo.nombre}}</h4>
+            <h6 class="card-subtitle text-white">Hogar: {{dispositivo.hogar}}</h6>
+            <h6 class="card-subtitle text-white">Sector: {{dispositivo.sector}}</h6>
+            <small> Creado: {{ dispositivo.creadoEl | date: 'd/M/yy  h:mm'}}</small>
+            <br>
+            <br>
+
+            <h6 class="card-subtitle text-white">Instalado: {{dispositivo.lugar}}</h6>
+            <hr>
+
+            <p class="text-white">
+              podra: actualizar bandas horarias , bandas de vacaciones y el perfil de los dispositivos
+            </p>
+      
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+      <div class="card">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs profile-tab" role="tablist">
+  
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              data-toggle="tab"
+              href="#horario"
+              role="tab">
+              Banda Horaria
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a 
+            class="nav-link" 
+            data-toggle="tab" 
+            href="#vacas" 
+            role="tab">
+              Banda vacaciones</a>
+          </li>
+
+          <li class="nav-item">
+              <a 
+              class="nav-link" 
+              data-toggle="tab" 
+              href="#perfil" 
+              role="tab">
+                Perfil</a>
+          </li>
+  
+
+        </ul>
+  
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+          <!--dispositivos asociados-->
+
+          <!-- banda horaria-->
+          <div class="tab-pane active" id="horario" role="tabpanel">
+              <div  class="card-body">
+                <div>
+
+                  <app-banda-hora></app-banda-hora>
+                  <br>
+                    <a href="#" class="btn btn-success">
+                      Desafectar horario</a>
+                <hr/>
+                </div>
+              </div>
+          </div>
+
+          <!--banda de vacaciones-->
+          <div class="tab-pane" id="vacas" role="tabpanel">
+
+              <div  class="card-body">
+                <div>
+                  <br>
+                    <a href="#" class="btn btn-success">
+                      Desafectar vacaciones</a>
+                <hr/>
+                </div>
+              </div>
+
+
+          </div>
+
+          <div class="tab-pane" id="perfil" role="tabpanel">
+
+              <div  class="card-body">
+                <div>
+                  <br>
+                    <a href="#" class="btn btn-success">
+                      Desafectar perfil</a>
+                <hr/>
+                </div>
+              </div>
+
+
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  
+</div>

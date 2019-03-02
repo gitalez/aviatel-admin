@@ -1,0 +1,226 @@
+<div class="row animated fadeIn">
+  <div class="col-lg-12 col-xlg-12 col-md-12">
+    <div class="card">
+      <div class="tab-content">
+       
+          <div class="card-body tab-panel">
+            <form
+            #fDisp= "ngForm"
+              ngNativeValidate
+              (ngSubmit)="crearDispositivo(fDisp)"
+              class="form-horizontal form-material">
+              <br/>
+
+                <div class="form-group">
+                <label class="col-md-12 text-dark">Nombre del dispositivo</label>
+                <div class="col-md-12">
+                  <input
+                    [(ngModel)]="dispositivo.nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="ingrese nombre del dispositivo"
+                    class="form-control form-control-line"
+                    required/>
+                </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                    <label class="col-md-12 text-dark">Latitud dispositivo</label>
+                    <div class="col-md-12">
+                      <input
+                        [(ngModel)]="dispositivo.lat"
+                        name="lat"
+                        type="number"
+                        placeholder="ingrese la latitud del dispositivo"
+                        class="form-control form-control-line"
+                        required/>
+                    </div>
+                </div>
+                <br/>  
+
+                <div class="form-group">
+                    <label class="col-md-12 text-dark">Longitud dispositivo</label>
+                    <div class="col-md-12">
+                      <input
+                        [(ngModel)]="dispositivo.lng"
+                        name="lng"
+                        type="number"
+                        placeholder="ingrese nombre del dispositivo"
+                        class="form-control form-control-line"
+                        required/>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                        <label class="col-md-12 text-dark">SSID router</label>
+                        <div class="col-md-12">
+                          <input
+                            [(ngModel)]="dispositivo.ssid"
+                            name="ssid"
+                            type="text"
+                            placeholder="ingrese ssid de su router"
+                            class="form-control form-control-line"
+                            required/>
+                        </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                            <label class="col-md-12 text-dark">contraseña router</label>
+                            <div class="col-md-12">
+                              <input
+                                [(ngModel)]="dispositivo.passwordRouter"
+                                name="passwordRouter"
+                                type="text"
+                                placeholder="ingrese la contraseña de su router"
+                                class="form-control form-control-line"
+                                required/>
+                            </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                        <label class="col-md-12 text-dark">Lugar de instalacion</label>
+                        <div class="col-md-12">
+                          <input
+                            [(ngModel)]="dispositivo.lugar"
+                            name="lugar"
+                            type="text"
+                            placeholder="ingrese el lugar de la instalacion"
+                            class="form-control form-control-line"
+                            required/>
+                        </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                  <label class="col-md-12 text-dark">Hogar de instalacion</label>
+                  <div class="col-md-12">
+                    <input
+                      [(ngModel)]="dispositivo.hogar"
+                      name="hogar"
+                      type="text"
+                      placeholder="ingrese el hogar de la instalacion"
+                      class="form-control form-control-line"
+                      required/>
+                  </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                  <label class="col-md-12 text-dark">Sector de instalacion</label>
+                  <div class="col-md-12">
+                    <input
+                      [(ngModel)]="dispositivo.sector"
+                      name="sector"
+                      type="text"
+                      placeholder="ingrese el sector de la instalacion"
+                      class="form-control form-control-line"
+                      required/>
+                  </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                        <label class="col-md-12 text-dark">codigo MAC address</label>
+                        <div class="col-md-12">
+                          <input
+                            [(ngModel)]="dispositivo.mac"
+                            name="mac"
+                            type="text"
+                            placeholder="ingrese el codigo mac address que viene con el equipo"
+                            class="form-control form-control-line"
+                            required/>
+                        </div>
+                </div>
+                <br/> 
+
+                <div class="form-group">
+                        <label class="col-md-12 text-dark">Descripcion opcional</label>
+                        <div class="col-md-12">
+                          <textarea
+                            [(ngModel)]="dispositivo.descripcion"
+                            name="descripcion"
+                            type="text"
+                            row= "4"
+                            placeholder="ingrese una descripcion"
+                            class="form-control form-control-line"></textarea>
+                        </div>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                        <label class="col-sm-12 text-dark">Tipo de dispositivo</label>
+                        <div class="col-sm-12">
+                          <select 
+                            class="form-control form-control-line"
+                            [(ngModel)] = dispositivo.tipo
+                            required
+                            name="tipo">
+                            <option value="">Seleccione un tipo de dispositivo</option>
+                            <option>central</option>
+                            <option>receptor</option>
+                            <option>sensor</option>
+                            <option>llave de luz de 1 punto</option>
+                            <option>llave de luz de 2 puntos</option>
+                            <option>llave de luz de 3 puntos</option>
+                            <option>llave de luz dimmer</option>
+                            <option>tag</option>
+                            <option>cortina</option>
+                            <option>enchufe wifi</option>
+                            <option>zapatilla wifi</option>
+                            <option>wifi industrial</option>
+                          </select>
+                        </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                        <label class="col-sm-12 text-dark">Estado del dispositivo</label>
+                        <div class="col-sm-12">
+                          <select 
+                            class="form-control form-control-line"
+                            [(ngModel)] = dispositivo.estado
+                            required
+                            name="estado">
+                            <option value="">Seleccione un estado</option>
+                            <option>activo</option>
+                            <option>inactivo</option>
+                          </select>
+                        </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                        <label class="col-sm-12 text-dark">Asociar un usuario</label>
+                        <div class="col-sm-12">
+                          <select
+                            class="form-control form-control-line"
+                            [(ngModel)] = dispositivo.usuario
+                            required
+                            name="idUsuarioAsociado">
+                            <option [value]="usuario._id" *ngFor= "let usuario of usuarios" >{{usuario.email}}</option>
+                        </select>
+                        </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                        <div class="col-sm-12">
+        
+                          <button type= "submit" class="btn btn-success">Crear dispositivo</button>
+                          &nbsp;
+                          <a routerLink= "/dispositivos" class="btn btn-red waves-effect waves-light">
+                            Cancelar
+                          </a>
+                        </div>
+                </div> 
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
