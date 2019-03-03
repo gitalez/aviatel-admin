@@ -27,6 +27,34 @@ export class SubirArchivoService {
 
     });
 */
+/*
+let usuario = {
+  nombre : 'alex',
+  edad: 60
+};
+
+let url = URL_SERVICIOS + "/upload/" + tipo + "/" + id;
+console.log(url);
+
+
+fetch( url, 
+
+{ method: 'PUT',
+body: archivo,
+headers: {'Content-type': 'application/json'}})
+.then((resp) => resp.json())
+.then((respObj) => {
+  console.log('respuesta del put');
+  console.log(respObj);
+})
+.catch( error => {
+  console.log('error en la peticion');
+  console.log(error);
+})
+
+
+
+*/
 
     return new Promise((resolve, reject) => {
       let formData = new FormData(); // es el payload que quiero subir
